@@ -1,0 +1,479 @@
+/* ====================================
+   1. GLOBAL & RESET
+   ==================================== */
+:root {
+    --primary-color: #004d99; /* Biru tua/navy (Warna Utama) */
+    --secondary-color: #e6f0ff; /* Biru sangat muda (Latar belakang section) */
+    --accent-color: #007bff; /* Biru terang (Tombol, hover, aksen) */
+    --light-gray: #f0f0f0; /* Abu-abu terang (Latar belakang kontak/pendidikan) */
+    --text-color: #333;
+    --light-text-color: #fff; 
+    --font-family: 'Arial', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-family);
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: #fff;
+}
+
+h1, h2, h3, h4 {
+    color: var(--primary-color);
+    margin-bottom: 0.5em;
+    font-weight: 700;
+}
+
+a {
+    text-decoration: none;
+    color: var(--primary-color);
+    transition: color 0.3s;
+}
+
+a:hover {
+    color: var(--accent-color);
+}
+
+hr {
+    border: 0;
+    height: 1px;
+    background: #e0e0e0;
+    margin: 3em 0;
+}
+
+/* ====================================
+   2. HEADER & NAVIGASI 
+   ==================================== */
+header {
+    background: var(--primary-color);
+    color: var(--light-text-color);
+    padding: 1em 5%;
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: sticky; 
+    top: 0;
+    z-index: 1000;
+}
+
+header h1 {
+    color: var(--light-text-color);
+    font-size: 1.8em;
+    margin: 0;
+}
+
+header .subtitle {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 1em;
+    margin: 0;
+}
+
+nav ul {
+    list-style: none;
+    display: flex; 
+    flex-wrap: wrap;
+    justify-content: flex-end; 
+    gap: 20px;
+    padding: 0; 
+}
+
+nav ul li a {
+    color: var(--light-text-color);
+    font-weight: 500;
+    padding: 0.5em 0;
+    display: block;
+    position: relative;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: var(--light-text-color);
+}
+
+/* Efek underline pada hover navigasi */
+nav ul li a::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background: var(--light-text-color);
+    transition: width 0.3s;
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+}
+nav ul li a:hover::after {
+    width: 100%;
+}
+
+/* ====================================
+   3. MAIN CONTENT LAYOUT
+   ==================================== */
+main {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 2em 20px;
+}
+
+section {
+    padding: 2em 0;
+}
+
+/* ====================================
+   4. PROFIL RINGKAS (HERO)
+   ==================================== */
+.profil-ringkas {
+    text-align: center;
+    padding: 4em 0;
+}
+
+.profil-ringkas img {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%; 
+    object-fit: cover;
+    margin-bottom: 1.5em;
+    border: 5px solid var(--primary-color);
+    box-shadow: 0 0 0 8px rgba(0, 0, 0, 0.05);
+}
+
+.profil-ringkas h2 {
+    font-size: 2.5em;
+    margin-bottom: 0.2em;
+}
+
+.ringkasan {
+    max-width: 700px;
+    margin: 0.5em auto 1.5em;
+    font-size: 1.1em;
+    color: #555;
+}
+
+.info-personal {
+    font-size: 0.95em;
+    color: #777;
+    margin-top: 1em;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+.info-personal span {
+    display: flex;
+    align-items: center;
+}
+.info-personal i {
+    color: var(--primary-color);
+    margin-right: 5px;
+}
+
+.btn {
+    display: inline-block;
+    background-color: var(--accent-color);
+    color: white;
+    padding: 10px 25px;
+    border-radius: 5px;
+    margin-top: 1.5em;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+    transition: background-color 0.3s, transform 0.1s;
+}
+
+.btn:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+}
+
+/* ====================================
+   5. PENDIDIKAN & TENTANG
+   ==================================== */
+.pendidikan-riwayat {
+    background-color: var(--light-gray); 
+    padding: 2.5em;
+    border-radius: 10px;
+    margin-bottom: 2em;
+}
+.pendidikan-riwayat ul, .sertifikasi-list {
+    list-style: none;
+    padding-left: 0;
+}
+.pendidikan-riwayat li {
+    margin-bottom: 10px;
+    font-size: 1.1em;
+    font-weight: 600;
+    color: var(--primary-color);
+}
+.pendidikan-riwayat li p {
+    font-weight: normal;
+    font-size: 0.9em;
+    color: #666;
+    margin-left: 10px;
+}
+
+.tentang-detail {
+    background-color: var(--secondary-color);
+    padding: 2.5em; 
+    border-radius: 10px; 
+}
+
+.keahlian-sertifikasi-group {
+    display: flex;
+    gap: 40px;
+    margin-top: 1.5em;
+}
+.keahlian-konten, .sertifikasi-konten {
+    flex: 1;
+}
+
+.keahlian-list {
+    list-style: none;
+    display: flex; 
+    flex-wrap: wrap;
+    gap: 12px; 
+    margin-top: 1em;
+    padding-left: 0;
+}
+
+.keahlian-list li {
+    background: #fff;
+    padding: 8px 15px; 
+    border: 1px solid #c0d9ed;
+    border-radius: 20px;
+    font-size: 0.9em;
+    color: var(--primary-color);
+    font-weight: 600;
+    white-space: nowrap; 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.keahlian-list li i, .sertifikasi-list li i {
+    margin-right: 8px;
+    color: var(--primary-color);
+}
+
+
+/* ====================================
+   6. PENGALAMAN (Timeline)
+   ==================================== */
+.riwayat-pengalaman ul {
+    list-style: none; 
+    padding-left: 0;
+}
+
+.riwayat-pengalaman ul li {
+    margin-bottom: 25px;
+    padding-left: 20px; 
+    border-left: 3px solid var(--primary-color);
+    font-weight: 600;
+    font-size: 1.05em;
+}
+
+.riwayat-pengalaman ul li p {
+    margin-top: 5px;
+    font-size: 0.95em;
+    color: #666;
+    font-weight: normal;
+}
+
+/* ====================================
+   7. KARYA (Grid Elegan & Lightbox)
+   ==================================== */
+.karya-grid, .video-grid {
+    display: grid; 
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 2em;
+}
+
+.karya-item, .video-item {
+    border: none;
+    border-radius: 10px; 
+    overflow: hidden;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    background: #fff;
+}
+
+.karya-item:hover, .video-item:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);
+}
+
+.karya-item img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover; 
+    display: block; 
+}
+.karya-item a {
+    display: block;
+    line-height: 0; 
+}
+
+/* ====================================
+   8. KONTAK & FORMULIR
+   =================================== */
+.kontak {
+    text-align: center;
+    background-color: var(--light-gray);
+    padding: 3em 2em;
+    border-radius: 10px;
+}
+
+.daftar-kontak {
+    list-style: none;
+    margin-top: 2em;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    padding-left: 0;
+    line-height: 1.8;
+}
+
+.daftar-kontak li {
+    font-size: 1.1em;
+    color: var(--text-color);
+    display: flex;
+    align-items: center;
+}
+
+.daftar-kontak li i {
+    margin-right: 10px;
+    color: var(--primary-color);
+    font-size: 1.3em;
+}
+
+.form-container {
+    max-width: 500px;
+    margin: 30px auto 0;
+    text-align: left;
+    padding-top: 20px;
+    border-top: 1px dashed #ccc;
+}
+.form-container input:focus, .form-container textarea:focus {
+    border-color: var(--accent-color);
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.2);
+}
+
+/* ====================================
+   9. FOOTER (SIMPEL & ELEGAN)
+   ==================================== */
+footer {
+    background-color: white; /* Latar belakang putih */
+    color: #999; /* Teks abu-abu muda */
+    border-top: 1px solid #e0e0e0; /* Garis tipis di atas */
+    text-align: center;
+    padding: 1em 0; 
+    font-size: 0.85em; 
+}
+
+/* ====================================
+   10. LIGHTBOX / MODAL IMAGE GALLERY
+   ==================================== */
+.lightbox-modal {
+    display: none; 
+    position: fixed; 
+    z-index: 9999; 
+    padding-top: 60px; 
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto; 
+    background-color: rgba(0,0,0,0.9);
+}
+
+.lightbox-content {
+    margin: auto;
+    display: block;
+    width: 90%;
+    max-width: 900px; 
+    border-radius: 5px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+.lightbox-close {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.lightbox-close:hover,
+.lightbox-close:focus {
+    color: var(--accent-color);
+}
+
+.lightbox-caption {
+    margin: auto;
+    display: block;
+    width: 90%;
+    max-width: 900px;
+    text-align: center;
+    color: #ccc;
+    padding: 10px 0;
+    font-size: 1.1em;
+}
+
+.lightbox-content, .lightbox-caption {  
+    animation-name: zoom;
+    animation-duration: 0.6s;
+}
+
+@keyframes zoom {
+    from {transform:scale(0.8)} 
+    to {transform:scale(1)}
+}
+
+/* ====================================
+   11. MEDIA QUERIES (RESPONSIVITAS)
+   ==================================== */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        align-items: center;
+        padding: 1em 15px;
+    }
+    .header-branding {
+        margin-bottom: 10px;
+    }
+    nav ul {
+        justify-content: space-around;
+        gap: 10px;
+    }
+    main {
+        padding: 2em 15px;
+    }
+    .profil-ringkas {
+        padding: 2em 0;
+    }
+    .keahlian-sertifikasi-group {
+        flex-direction: column;
+        gap: 20px;
+    }
+    .karya-grid, .video-grid {
+        grid-template-columns: 1fr; 
+    }
+    .info-personal {
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+    }
+    .daftar-kontak {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+}
