@@ -5,10 +5,393 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portofolio | Aziz Budiman - Ilmu Kelautan & Visual Storyteller</title>
     <meta name="description" content="Portofolio Aziz Budiman, Mahasiswa Ilmu Kelautan UNTIRTA, spesialisasi dalam monitoring lingkungan laut, pengembangan terumbu karang, Penyelam Ilmiah, dan Content Creation.">
-    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    
-    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Gaya Reset & Dasar */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f4f7f6;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: #007791;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: #005662;
+        }
+
+        /* Bilah Menu Utama (Header) */
+        header {
+            background-color: #002c3d;
+            color: #fff;
+            padding: 20px 10%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .header-branding h1 {
+            font-size: 24px;
+            letter-spacing: 1px;
+        }
+
+        .header-branding .subtitle {
+            font-size: 12px;
+            color: #a0c4ff;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 20px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            font-size: 15px;
+            font-weight: 500;
+        }
+
+        nav ul li a:hover {
+            color: #a0c4ff;
+        }
+
+        /* Konten Utama */
+        main {
+            max-width: 1100px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        section {
+            background: #fff;
+            padding: 40px;
+            margin-bottom: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+
+        h2 {
+            color: #004b6e;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #e0f2f1;
+            padding-bottom: 10px;
+            font-size: 22px;
+        }
+
+        h3 {
+            color: #007791;
+            margin-bottom: 15px;
+            font-size: 18px;
+        }
+
+        /* Profil Komponen */
+        .profil-ringkas {
+            text-align: center;
+        }
+
+        .profil-ringkas img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 20px;
+            border: 4px solid #e0f2f1;
+        }
+
+        .profil-ringkas h2 {
+            border-bottom: none;
+            margin-bottom: 10px;
+            font-size: 26px;
+        }
+
+        .ringkasan {
+            font-size: 16px;
+            max-width: 800px;
+            margin: 0 auto 20px auto;
+            color: #555;
+        }
+
+        .info-personal {
+            margin-bottom: 25px;
+        }
+
+        .info-personal span {
+            margin: 0 15px;
+            font-size: 14px;
+            color: #666;
+        }
+
+        .info-personal i {
+            color: #007791;
+            margin-right: 5px;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: #007791;
+            color: #fff;
+            padding: 10px 25px;
+            border-radius: 25px;
+            font-weight: 500;
+            transition: background-color 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: #005662;
+            color: #fff;
+        }
+
+        /* Riwayat Pendidikan */
+        .riwayat-pendidikan ul {
+            list-style: none;
+        }
+
+        .riwayat-pendidikan li {
+            margin-bottom: 15px;
+            position: relative;
+            padding-left: 20px;
+            font-weight: 600;
+        }
+
+        .riwayat-pendidikan li::before {
+            content: "•";
+            color: #007791;
+            font-size: 20px;
+            position: absolute;
+            left: 0;
+            top: -2px;
+        }
+
+        .riwayat-pendidikan p {
+            font-weight: normal;
+            color: #666;
+            margin-top: 2px;
+        }
+
+        /* Desain Tata Letak Grid Keahlian */
+        .keahlian-sertifikasi-group {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+
+        .keahlian-list, .sertifikasi-list {
+            list-style: none;
+        }
+
+        .keahlian-list li, .sertifikasi-list li {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            font-size: 15px;
+        }
+
+        .keahlian-list i, .sertifikasi-list i {
+            color: #007791;
+            margin-right: 12px;
+            width: 20px;
+            text-align: center;
+        }
+
+        /* Pengalaman Kerja / Organisasi */
+        .riwayat-pengalaman ul {
+            list-style: none;
+        }
+
+        .riwayat-pengalaman li {
+            padding: 12px 0;
+            border-bottom: 1px dashed #e0e0e0;
+            font-size: 15px;
+        }
+
+        .riwayat-pengalaman li:last-child {
+            border-bottom: none;
+        }
+
+        /* Galeri Portofolio Visual */
+        .intro-karya {
+            margin-bottom: 20px;
+            color: #666;
+        }
+
+        .karya-grid, .video-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .karya-item, .video-item {
+            background: #fafafa;
+            border: 1px solid #e0e0e0;
+            border-radius: 6px;
+            padding: 15px;
+        }
+
+        .karya-item img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            border-radius: 4px;
+            margin-bottom: 12px;
+        }
+
+        .karya-item h3 {
+            font-size: 16px;
+            margin-bottom: 5px;
+            color: #333;
+        }
+
+        .deskripsi-karya {
+            font-size: 13px;
+            color: #666;
+        }
+
+        .video-item iframe {
+            border-radius: 4px;
+            margin-bottom: 10px;
+        }
+
+        .video-item h4 {
+            font-size: 15px;
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        .video-item p {
+            font-size: 13px;
+            color: #666;
+        }
+
+        /* Bagian Hubungi Kami */
+        .ajakan-kontak {
+            margin-bottom: 20px;
+        }
+
+        .daftar-kontak {
+            list-style: none;
+            margin-bottom: 30px;
+        }
+
+        .daftar-kontak li {
+            margin-bottom: 10px;
+            font-size: 15px;
+        }
+
+        .daftar-kontak i {
+            color: #007791;
+            margin-right: 10px;
+            width: 20px;
+        }
+
+        .form-container {
+            background: #fafafa;
+            padding: 25px;
+            border-radius: 6px;
+            border: 1px solid #e0e0e0;
+        }
+
+        .form-container h3 {
+            margin-bottom: 15px;
+        }
+
+        .form-container input, .form-container textarea {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+
+        .form-container input:focus, .form-container textarea:focus {
+            outline: none;
+            border-color: #007791;
+        }
+
+        /* Komponen Efek Pratinjau Foto Modal (Lightbox) */
+        .lightbox-modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            padding-top: 100px;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.9);
+        }
+
+        .lightbox-content {
+            margin: auto;
+            display: block;
+            max-width: 80%;
+            max-height: 70vh;
+            border-radius: 4px;
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 50px;
+            right: 50px;
+            color: #fff;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .lightbox-caption {
+            margin: auto;
+            display: block;
+            width: 80%;
+            text-align: center;
+            color: #ccc;
+            padding: 10px 0;
+            font-size: 16px;
+        }
+
+        /* Penyesuaian Desain Responsif Ponsel pintar */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                text-align: center;
+            }
+            nav ul {
+                margin-top: 15px;
+            }
+            nav ul li {
+                margin: 0 10px;
+            }
+            .keahlian-sertifikasi-group, .karya-grid, .video-grid {
+                grid-template-columns: 1fr;
+            }
+            .info-personal span {
+                display: block;
+                margin: 10px 0;
+            }
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -21,6 +404,7 @@
             <ul>
                 <li><a href="#profil">Profil</a></li>
                 <li><a href="#pendidikan">Pendidikan</a></li>
+                <li><a href="#tentang">Keahlian</a></li>
                 <li><a href="#pengalaman">Pengalaman</a></li>
                 <li><a href="#karya">Karya</a></li>
                 <li><a href="#kontak">Kontak</a></li>
@@ -31,10 +415,9 @@
     <main>
         <section id="profil" class="profil-ringkas">
             <img src="assets/foto-profil.jpg" alt="Foto Profil Aziz Budiman">
-            
             <h2>Aziz Budiman</h2>
             <p class="ringkasan">
-                Saya adalah mahasiswa aktif Ilmu Kelautan yang memiliki minat kuat dalam isu lingkungan laut, pengembangan potensi pesisir, dan pemberdayaan masyarakat. Berpengalaman dalam kegiatan penyelaman ilmiah untuk monitoring dan pengembangan terumbu karang di Pulau Tunda.
+                Saya adalah mahasiswa aktif Ilmu Kelautan Universitas Sultan Ageng Tirtayasa yang memiliki minat kuat dalam isu lingkungan laut, pengembangan potensi pesisir, dan pemberdayaan masyarakat. Berpengalaman dalam kegiatan penyelaman ilmiah untuk monitoring dan pengembangan terumbu karang di Pulau Tunda serta wilayah cakupan Selat Sunda.
             </p>
             <p class="info-personal">
                 <span><i class="fas fa-phone-alt"></i> +62 82125739406</span>
@@ -43,8 +426,6 @@
             </p>
             <a href="#karya" class="btn">Lihat Portofolio</a>
         </section>
-        
-        <hr>
 
         <section id="pendidikan" class="pendidikan-riwayat">
             <h2>Riwayat Pendidikan</h2>
@@ -52,7 +433,7 @@
                 <ul>
                     <li>
                         Universitas Sultan Ageng Tirtayasa (UNTIRTA) | 2022 - Sekarang
-                        <p>Jurusan: Ilmu Kelautan (Semester 6)</p>
+                        <p>Jurusan: Ilmu Kelautan (Semester 8)</p>
                     </li>
                     <li>
                         SMA Negeri 1 Ciomas | 2019 - 2022
@@ -62,19 +443,17 @@
             </div>
         </section>
 
-        <hr>
-
         <section id="tentang" class="tentang-detail">
             <h2>Keahlian Utama & Sertifikasi</h2>
-            
             <div class="keahlian-sertifikasi-group">
                 <div class="keahlian-konten">
                     <h3>Keahlian Teknis & Kreatif</h3>
                     <ul class="keahlian-list">
-                        <li><i class="fas fa-water"></i> Penyelam Ilmiah</li>
-                        <li><i class="fas fa-camera"></i> Fotografi & Videografi</li>
-                        <li><i class="fas fa-palette"></i> Desain Grafis</li>
-                        <li><i class="fas fa-video"></i> Editing Video (Premiere Pro/CapCut)</li>
+                        <li><i class="fas fa-water"></i> Penyelam Ilmiah (Monitoring Terumbu Karang)</li>
+                        <li><i class="fas fa-camera"></i> Fotografi & Videografi Bawah Air</li>
+                        <li><i class="fas fa-cube"></i> Pemetaan Fotogrametri 2D / 2.5D & Sistem Informasi Geografis</li>
+                        <li><i class="fas fa-palette"></i> Olah Data & Desain Bisnis (SPSS, SketchUp, Canva)</li>
+                        <li><i class="fas fa-video"></i> Editing Video (Premiere Pro / CapCut)</li>
                         <li><i class="fas fa-pencil-alt"></i> Copywriting Media Sosial</li>
                     </ul>
                 </div>
@@ -89,40 +468,20 @@
                 </div>
             </div>
         </section>
-
-        <hr>
         
         <section id="pengalaman" class="riwayat-pengalaman">
             <h2>Pengalaman Organisasi & Akademik</h2>
             <ul>
-                <li>
-                    Asisten Laboratorium Selam Ilmiah | 2023 - Sekarang
-                </li>
-                <li>
-                    Tim Media dan Publikasi Jawara Diving Club | 2024 - Sekarang
-                </li>
-                <li>
-                    Anggota Aktif Gencar Untirta | 2024 - Sekarang
-                </li>
-                <li>
-                    Kepala Divisi SOSMED LSO Himaika | 2023 - 2024
-                </li>
-                <li>
-                    Asisten Laboratorium Ekologi Laut | 2024
-                </li>
-                <li>
-                    Asisten Laboratorium Ekologi Perairan | 2022 - 2024
-                </li>
-                <li>
-                    Anggota Divisi Pengembangan Internal YBM PLN UNTIRTA | 2022-2023
-                </li>
-                <li>
-                    Tim Media YMB RO Banten | 2022
-                </li>
+                <li>Asisten Laboratorium Selam Ilmiah | 2023 - Sekarang</li>
+                <li>Tim Media dan Publikasi Jawara Diving Club | 2024 - Sekarang</li>
+                <li>Anggota Aktif Gencar Untirta | 2024 - Sekarang</li>
+                <li>Kepala Divisi SOSMED LSO Himaika | 2023 - 2024</li>
+                <li>Asisten Laboratorium Ekologi Laut | 2024</li>
+                <li>Asisten Laboratorium Ekologi Perairan | 2022 - 2024</li>
+                <li>Anggota Divisi Pengembangan Internal YBM PLN UNTIRTA | 2022 - 2023</li>
+                <li>Tim Media YMB RO Banten | 2022</li>
             </ul>
         </section>
-
-        <hr>
 
         <section id="karya" class="galeri-karya">
             <h2>Karya Visual Pilihan</h2> 
@@ -149,19 +508,17 @@
             <h3 style="margin-top: 2em;">Videografi & Editing</h3>
             <div class="video-grid">
                 <div class="video-item">
-                    <iframe width="100%" height="200" src="https://www.youtube.com/embed/4gxIReGRHO0" title="YouTube video player - Ekspedisi Selat Sunda" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <iframe width="100%" height="220" src="https://www.youtube.com/embed/4gxIReGRHO0" title="YouTube video player - Ekspedisi Selat Sunda" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     <h4>Dokumentasi Ekspedisi Selat Sunda</h4>
-                    <p>Video dokumentasi penuh aksi yang merekam kegiatan survei dan eksplorasi di Selat Sunda.</p>
+                    <p>Video dokumentasi penuh aksi yang merekam kegiatan survei dan eksplorasi di Selat Sunda (Pulau Badul, Pulau Liwungan, Pulau Sangiang).</p>
                 </div>
                 <div class="video-item">
-                    <iframe width="100%" height="200" src="https://www.instagram.com/reel/DNDGhEXvPKv/?igsh=ZWljaWdwaG53OG5j" title="Instagram video player - Penanaman Fishdome" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <iframe width="100%" height="450" src="https://www.instagram.com/reel/DNDGhEXvPKv/embed" frameborder="0" scrolling="no" allowtransparency="true" allow="encrypted-media"></iframe>
                     <h4>Proyek Penanaman 100 Fishdome</h4>
-                    <p>Merekam kegiatan konservasi dan penanaman 100 fishdome di perairan untuk restorasi habitat laut.</p>
+                    <p>Merekam kegiatan konservasi dan penanaman 100 fishdome / rumah ikan di perairan untuk restorasi habitat laut.</p>
                 </div>
             </div>
         </section>
-
-        <hr>
 
         <section id="kontak" class="kontak">
             <h2>Hubungi Saya</h2> 
@@ -189,10 +546,47 @@
 
     <div id="lightbox-modal" class="lightbox-modal">
         <span class="lightbox-close">&times;</span>
-        <img class="lightbox-content" id="lightbox-img">
+        <img class="lightbox-content" id="lightbox-img" alt="Pratinjau Foto">
         <div id="lightbox-caption" class="lightbox-caption"></div>
     </div>
     
-    <script src="script.js"></script> 
+    <script>
+        // Logika Fungsional Komponen Lightbox Galeri Foto
+        const modal = document.getElementById("lightbox-modal");
+        const modalImg = document.getElementById("lightbox-img");
+        const captionText = document.getElementById("lightbox-caption");
+        const closeBtn = document.getElementsByClassName("lightbox-close")[0];
+
+        document.querySelectorAll(".lightbox-trigger").forEach(trigger => {
+            trigger.addEventListener("click", function(e) {
+                e.preventDefault();
+                modal.style.display = "block";
+                const img = this.querySelector("img");
+                modalImg.src = this.href;
+                captionText.innerHTML = img.alt;
+            });
+        });
+
+        closeBtn.onclick = function() {
+            modal.style.display = "none";
+        }
+
+        modal.onclick = function(e) {
+            if (e.target === modal || e.target === closeBtn) {
+                modal.style.display = "none";
+            }
+        }
+
+        // Simulasi Interaksi Pengiriman Berhasil Formulir Kontak
+        const form = document.getElementById("contactForm");
+        const status = document.getElementById("form-status");
+        
+        form.addEventListener("submit", function(e) {
+            e.preventDefault();
+            status.style.color = "green";
+            status.innerHTML = "Terima kasih! Pesan Anda berhasil disimulasikan untuk dikirim.";
+            form.reset();
+        });
+    </script> 
 </body>
 </html>
